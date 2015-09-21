@@ -1,24 +1,28 @@
-module.exports = function(address, taskName){
-  var eventMessager = require('../../event-messager')(taskName);
-  var taskObj = {
-    name: taskName,
-    address: address,
-    payload: {}
-  }
+module.exports = {
+    //the object which should be passed by task function
+    taskObj: {
+      name: "",//tdb
+      address: "",//tdb
+      dateToExecute: {},//tbd
+      payload: {} //tbd
+    },
+    // the object which should be passed by condition function is true
+    conditionTrueObj: {
+      name: "",//tbd
+      address: "",//tbd
+      dateToExecute: {},//tbd
+      payload: {}//tbd
+    },
+    // the object which should be passed by condition function is false
+    conditionFalseObj: {
+      name: "",//tbd
+      address: "",//tbd
+      dateToExecute: {},//tbd
+      payload: {}//tbd
+    },
 
-  var conditionObj = {
-    name: "check".concat(taskName);
-    address: address,
-    payload: {}
-  }
-
-  return{
     condition: function(obj){
-      if(obj.a === obj.b){
-        eventMessager.emit(taskName);
-      } else{
-        console.log("Sorry, conditions for task %s are false", taskName);
-      }
+      return(obj.a === obj.b);
     },
 
     task: function(a){

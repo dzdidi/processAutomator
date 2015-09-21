@@ -1,13 +1,9 @@
-var ADDRESS = "Task:Maganer";
-var taskDescription = require('./lib/taskDescription.js');
+var wrapper = require("./lib/wrapper.js");
 
-module.exports = function(tasks){
-  var eventMessager = require('../event-messager')(ADDRESS);
+module.exports = function(address, tasks){
+  var eventMessager = require('../event-messager')(address);
 
   tasks.forEach(function(task){
-    //listener for check conditions
-    eventMessager.addListener("check".concat(task), taskDescription.read(ADDRESS, task).condition);
-    //listener for task
-    eventMessager.addListener(task, taskDescription.read(ADDRESS, task).task);
+    wrapper(eventMessager, task);
   });
 };
