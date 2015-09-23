@@ -8,5 +8,9 @@ describe('taskDescription library', function(){
     it('should have read function', function(){
       assert.equal(typeof taskDescription.read, 'function');
     });
+
+    it('should return library by passed name', function(){
+      assert.equal(taskDescription.read('testTask1'), require('../tasks/testTask1.js'));
+    });
   });
 });

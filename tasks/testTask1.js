@@ -1,20 +1,32 @@
-// both condition and task functions accepts one parameter which is array
-
 module.exports = {
-  name: 'testTask1',
-  schedule: ['Delay in days for first execution', '...', 'Delay in days for n-th execution after n-1 -th'],
-  conditionParams: [
-    {'model':'modelName', 'feild':'feildName', 'value': 'value'},
-    {'model':'modelName', 'feild':'feildName', 'value': 'value'}
-  ],
-  condition: function(a){ // should also include logic to check is task scheduled
-    return true;
-  },
-  taskParams: {
-    {'model':'modelName', 'feild':'feildName', 'value': 'value'},
-    {'model':'modelName', 'feild':'feildName', 'value': 'value'}
-  },
-  task: function(a){ //should include logic to state that task is scheduled
-    console.log(a);
+    //the object which should be passed by task function
+    taskObj: {
+      name: "",//tdb
+      address: "",//tdb
+      dateToExecute: {},//tbd
+      payload: {} //tbd
+    },
+    // the object which should be passed by condition function is true
+    conditionTrueObj: {
+      name: "",//tbd
+      address: "",//tbd
+      dateToExecute: {},//tbd
+      payload: {}//tbd
+    },
+    // the object which should be passed by condition function is false
+    conditionFalseObj: {
+      name: "",//tbd
+      address: "",//tbd
+      dateToExecute: {},//tbd
+      payload: {}//tbd
+    },
+
+    condition: function(obj){
+      return(obj.a === obj.b);
+    },
+
+    task: function(a){
+      console.log(a);
+    }
   }
 };
