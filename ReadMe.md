@@ -46,7 +46,7 @@ Where address is string address of event listener to which this tasks will be as
  During instantiation library creates EventMessager instance with address provided as a parameter (broradcast, multicast address as well) and assigns each task as a listener to event with name of the task and condtion to event with `check` appended to task name.
 
  <h4>Exmaple</h4>
- ```javascript
+ ```
 filename:  "task.js";
 event:  "task";
 condtionEvent: "checktask";
