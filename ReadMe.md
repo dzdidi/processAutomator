@@ -1,4 +1,4 @@
-<h1>This Task manager package based on event messaging system https://github.com/dzdidi/event-messager<h1>
+<h1>This Task manager package based on event messaging system https://github.com/dzdidi/event-messager</h1>
 
 
 To instantiate library require it and pass two parameters:
